@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="flower.css">
+<script src="flower.js"></script>			
+
+<title>Flowers</title>
+</head>
+<body> 
+<span class="toggletext" onclick="toggleHide('maincontrol')">Show/Hide Menu</span>
+<div id="maincontrol" class="controls">
+<h1>Controls</h1>
+Width
+<div><input id="scalew" type="range" step="1" min="1" max="1000" oninput="updateCssVar('scalew','--scalew','px')" value="450"></div>
+Height
+<div><input id="scaleh" type="range" step="1" min="1" max="1000" oninput="updateCssVar('scaleh','--scaleh','px')" value="450"></div>
+Border-radius
+<div><input id="petalradius" type="range" step="1" min="0" max="50" oninput="updateCssVar('petalradius','--petalradius','%')" value="0"></div>
+Inner Width
+<div><input id="innerwidth" type="range" step="1" min="1" max="300" oninput="updateCssVar('innerwidth','--innerwidth','%')" value="100"></div>
+Inner Height
+<div><input id="innerheight" type="range" step="1"  min="1" max="300" oninput="updateCssVar('innerheight','--innerheight','%')" value="100"></div>
+Petals
+<div><input id="petals" type="range" step="1" min="0" max="25" oninput="breedpetals('petals')" value="2"></div>
+Duration
+<div><input id="animduration" type="range" step="1" min="0" max="10000" oninput="updateCssVar('animduration','--animduration','s')" value="15"></div>
+Outline Colour
+<div><input id="outlinecolor" type="color" oninput="updateCssVar('outlinecolor','--outlinecolor','')" value="#ffffff"></div><!--19 is for transpency, no units are used-->
+Colour1
+<div><input id="color1" type="color" oninput="updateCssVar('color1','--color1','19'),updateCssVar('color1','--colorsolid1','')" value="#082FDE"></div><!--19 is for transpency, no units are used-->
+Colour2
+<div><input id="color2" type="color" oninput="updateCssVar('color2','--color2','19'),updateCssVar('color2','--colorsolid2','')" value="#DEB708"></div>
+<div class="button" onclick="setCssVar('--color1','#00000000'),setCssVar('--color2','#00000000')">Clear Colour</div>
+
+
+<div id="slidertoggle" onclick="slidertoggle()">Numbers Please</div>
+</div>
+
+<!--presets-->
+<span class="toggletext" onclick="toggleHide('presetmenu')" style="float:right;">Show/Hide Presets</span>
+
+<div id="presetmenu" class="presets right">
+<h1>Presets</h1>
+<div><div class="button" onclick="setPreset(1)"> Original</div></div>
+<div><div class="button" onclick="setPreset(2)"> Clock</div></div>
+<div><div class="button" onclick="setPreset(3)"> Floor</div></div>
+<div><div class="button" onclick="setPreset(4)"> Basket</div></div>
+<div><div class="button" onclick="setPreset(5)"> Rose</div></div>
+<div><div class="button" onclick="setPreset(6)"> World</div></div>
+<div><div class="button" onclick="setPreset(7)"> Scissors</div></div>
+<div><div class="button" onclick="setPreset(8)"> Tunnel</div></div>
+<div><div class="button" onclick="setPreset(9)"> Whirlwind</div></div>
+<div><div class="button" onclick="setPreset(10)"> Sticks</div></div>
+<div><div class="button" onclick="setPreset(11)"> Paper</div></div>
+<div><div class="button" onclick="setPreset(12)"> Yarn</div></div>
+<div><div class="button" onclick="setPreset(13)"> Trampoline</div></div>
+<div><div class="button" onclick="setPreset(14)"> Fan</div></div>
+<div><div class="button" onclick="setPreset(15)"> Chopsticks</div></div>
+<div><div class="button" onclick="setPreset(16)"> Stairs</div></div>
+<div><div class="button" onclick="setPreset(17)"> Corsage</div></div>
+<div><div class="button" onclick="setPreset(18)"> O</div></div>
+<div><div class="button" onclick="setPreset(19)"> Propeller</div></div>
+<div><div class="button" onclick="setPreset(20)"> Asterisk</div></div>
+<div><div class="button" onclick="setPreset(21)"> Spool</div></div>
+<div><div class="button" onclick="setPreset(22)"> Star</div></div>
+</div>
+
+
+
+<!--the thing itself-->
+<div class="container">
+<div id="effect-wrapper"> 
+  <div id="layer1"><div><div></div></div>
+  </div>
+  <div id="layer2"><div><div></div></div>
+  </div> 
+</div>
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+

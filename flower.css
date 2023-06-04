@@ -1,0 +1,226 @@
+:root {
+	
+	--scalew: 450px;
+	--scaleh:450px;
+	
+	--outlinecolor:#ffffff;
+	--color1: #082FDE19; 
+	--colorsolid1: #082FDE; 
+	--color2: #DEB70819; 
+	--colorsolid2: #DEB708; 
+	
+	
+	--petalradius:0%;
+	--innerwidth:100%;
+	--innerheight:100%;
+	--animduration:15s;
+	}
+*{
+	margin:0;
+}
+h1{
+	margin-top:15px;
+	margin-bottom:15px;
+}
+body{
+	background:black;
+	overflow:hidden;
+	color:white;
+}
+.container{
+	padding:10%;
+	display:flex;
+	justify-content:center;
+	color:white;
+}
+
+.toggletext{
+	position:relative;
+	z-index:3;
+	font-family:verdana;
+	margin:10px;
+}
+
+#effect-wrapper {
+  position:relative;
+  width:var(--scalew);
+  height:var(--scaleh);
+}
+
+#layer1, #layer2 {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+
+}
+   
+#layer1, #layer1 *, #layer2, #layer2 * {
+    border-radius:var(--petalradius);
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	
+} 
+
+
+#layer1 *, #layer2 * {
+
+    width:var(--innerwidth);
+    height:var(--innerheight);
+} 
+
+
+
+
+/* --------- Animation --------- */
+#layer1, #layer1 * ,#layer2, #layer2 * {
+    -webkit-animation-duration: var(--animduration);
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-box-shadow:inset 0 0 10px var(--outlinecolor);
+}
+
+#layer1, #layer1 * {
+    -webkit-animation-name: spin-clockwise, pulsatecolor;
+}
+
+#layer2, #layer2 * {
+    -webkit-animation-name: spin-counter-clockwise, pulsatecolor;
+}
+
+/* Animation: Clockwise */
+@-webkit-keyframes spin-clockwise {
+    0%   { -webkit-transform: rotate(0deg);   }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+/* Animation: Counter counter clockwise */
+@-webkit-keyframes spin-counter-clockwise {
+    0%   { -webkit-transform: rotate(0deg);   } 
+    100% { -webkit-transform: rotate(-360deg); }
+}
+
+
+
+/* Animation: Counter counter clockwise */
+@-webkit-keyframes pulsatecolor {
+    0%   { background:var(--color1);
+    } 
+    50% { background:var(--color2);
+    }
+	100%   { background:var(--color1);
+    } 
+}
+
+
+
+
+/*all the controls business*/
+
+.controls,.presets{
+	position:absolute;
+	padding:2%;
+	color:white;
+	font-family:courier;
+	height:90vh;
+	overflow: auto;
+	z-index:2;
+}
+.right{
+	right:0px;
+}
+.right .button{
+	float:right;
+}
+
+.button{
+  display:inline-block;
+  background-color: rgba(0,0,0,0.0);
+  border: 2px solid white;
+  border-radius:4px;
+  color: white;
+  text-align: center;
+  justify-content:center;
+  text-decoration: none;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-shadow: 0px 3px 5px #b0d6ff;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: var(--color2);
+}
+input, select{
+  display:inline-block;
+  width:150px;
+  margin: 8px 0px;
+  border: 2px solid white;
+  color:white;
+  background-color: rgba(0,0,0,0.0);
+  box-shadow: 0px 3px 5px var(--colorsolid1);
+  -webkit-appearance: none;
+}
+
+
+input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius:var(--petalradius);
+  width: 15px;
+  height: 25px;
+  background: var(--colorsolid1);
+  cursor: pointer;
+}
+
+input[type=color]{
+	width:50px;
+}
+ input:focus{
+	  background-color:var(--color2);
+	  color:white;
+	  outline:none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: var(--colorsolid2);
+}
+
+::selection {
+  color: white;
+  background: var(--colorsolid2);
+}
+
+/*scrollbar/
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 1px white; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color1); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--colorsolid1); 
+}
+
+
+
+    
